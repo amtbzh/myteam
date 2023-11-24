@@ -2,20 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}MyTeam{% endblock %}</title>
         {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body data-bs-theme="dark">
+        {#
+        {% block message %}
+            {% include 'partials/components/_message.html.twig' %}
+        {% endblock %}
+        #}
         {% block navbar %}
             {% include 'partials/menu/navbar.html.twig' %}
         {% endblock %}
         {% block main %}
-            {% block body %}
-                {# Content here #}
-            {% endblock %}
+            <div class="container mt-4">
+                {% block body %}
+                    {# Content here #}
+                {% endblock %}
+            </div>
         {% endblock %}
         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </body>
 </html>
